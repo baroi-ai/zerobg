@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <nav className="w-full h-14 md:h-16 bg-transparent backdrop-blur-md sticky top-0 z-50 flex items-center justify-between px-4 sm:px-6 shrink-0">
       {/* Left: Logo */}
-      <Link href="/" className="flex items-center gap-3 group transition-opacity hover:opacity-90">
+      <Link href="/zerobg/" className="flex items-center gap-3 group transition-opacity hover:opacity-90">
         <div className="h-8 w-8 rounded-lg bg-linear-to-br from-cyan-500 to-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -51,7 +51,7 @@ export default function Navbar() {
         {isDropdownMenuOpen && (
           <div className="absolute right-0 top-full mt-2 w-48 bg-slate-900/95 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2">
             <a
-              href="/about"
+              href="/zerobg/about"
               onClick={() => setIsDropdownMenuOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
             >
@@ -59,7 +59,7 @@ export default function Navbar() {
               About
             </a>
             <a
-              href="/support"
+              href="/zerobg/support"
               onClick={() => setIsDropdownMenuOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
             >
@@ -68,7 +68,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="/privacy"
+              href="/zerobg/privacy"
               onClick={() => setIsDropdownMenuOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
             >
@@ -77,7 +77,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="/terms"
+              href="/zerobg/terms"
               onClick={() => setIsDropdownMenuOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
             >
@@ -88,7 +88,7 @@ export default function Navbar() {
             <div className="h-px w-full bg-white/10 my-1"></div>
 
             <a
-              href="/donate"
+              href="/zerobg/donate"
               onClick={() => setIsDropdownMenuOpen(false)}
               className="flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-teal-400 hover:text-teal-300 hover:bg-teal-500/10 transition-colors"
             >
