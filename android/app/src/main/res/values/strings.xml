@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BG Remover</string>
+    <string name="title_activity_main">BG Remover</string>
+    <string name="package_name">com.zerobg.bgremover</string>
+    <string name="custom_url_scheme">com.zerobg.bgremover</string>
+</resources>
