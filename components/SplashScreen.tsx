@@ -58,7 +58,7 @@ export default function SplashScreen() {
           <div className="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full animate-pulse"></div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
-            src="/logo.png" 
+            src="/zerobg/logo.png" 
             alt="ZeroBG Logo" 
             className="relative h-20 w-20 object-contain z-10"
           />

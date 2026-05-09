@@ -26,7 +26,7 @@ export default function Navbar() {
         <div className="h-8 w-8 rounded-lg bg-linear-to-br from-cyan-500 to-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.png"
+            src="/zerobg/logo.png"
             alt="ZeroBG Logo"
             className="h-full w-full object-cover"
           />
