@@ -21,7 +21,8 @@ import {
   Heart,
   User,
   Info,
-  LifeBuoy
+  LifeBuoy,
+  Redo
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import BottomNav from "../components/BottomNav";
@@ -44,6 +45,7 @@ export default function Home() {
   // File & Preview
   const [sourceImageFile, setSourceImageFile] = useState<File | null>(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+  
 
   // Job & AI State
   const [activeJob, setActiveJob] = useState<GenerationJob | null>(null);
@@ -56,7 +58,7 @@ export default function Home() {
   );
 
   // Editor / Canvas State
-  const [tool, setTool] = useState<ToolType>("none");
+  const [tool, setTool] = useState<ToolType>("restore");
   const [brushSize, setBrushSize] = useState(30);
   const [isDragging, setIsDragging] = useState(false);
   const [history, setHistory] = useState<ImageData[]>([]);
@@ -83,6 +85,8 @@ export default function Home() {
       URL.revokeObjectURL(url);
     }
   };
+
+  const [redoHistory, setRedoHistory] = useState<ImageData[]>([]);
 
   // --- Canvas Drawing Logic ---
   const initializeCanvas = (url: string) => {
@@ -129,6 +133,9 @@ export default function Home() {
       if (newHistory.length > 10) newHistory.shift();
       return newHistory;
     });
+    
+    // ADD THIS LINE: Clear the redo stack whenever a new action happens
+    setRedoHistory([]); 
   };
 
   const handleUndo = () => {
@@ -139,12 +146,31 @@ export default function Home() {
     if (!ctx) return;
 
     const newHistory = [...history];
-    newHistory.pop();
+    const undoneState = newHistory.pop(); // Grab the state we are undoing
     const previousState = newHistory[newHistory.length - 1];
 
-    if (previousState) {
+    if (previousState && undoneState) {
       ctx.putImageData(previousState, 0, 0);
       setHistory(newHistory);
+      // Push the undone state to the redo stack
+      setRedoHistory((prev) => [...prev, undoneState]); 
+    }
+  };
+
+  const handleRedo = () => {
+    if (redoHistory.length === 0) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return;
+
+    const newRedoHistory = [...redoHistory];
+    const stateToRestore = newRedoHistory.pop(); // Grab the last undone state
+
+    if (stateToRestore) {
+      ctx.putImageData(stateToRestore, 0, 0);
+      setRedoHistory(newRedoHistory);
+      setHistory((prev) => [...prev, stateToRestore]);
     }
   };
 
@@ -324,7 +350,7 @@ export default function Home() {
 
       setActiveJob(null);
       setHistory([]);
-      setTool("none");
+      setTool("restore");
       setZoom(1);
       setImageDimensions(null);
       e.target.value = "";
@@ -581,6 +607,13 @@ export default function Home() {
                   disabled={history.length <= 1}
                 >
                   <Undo className="w-4 h-4" />
+                </button>
+                <button
+                  className="h-8 w-8 flex items-center justify-center rounded-md text-gray-400 hover:text-white hover:bg-slate-800 transition disabled:opacity-30 disabled:cursor-not-allowed"
+                  onClick={handleRedo}
+                  disabled={redoHistory.length === 0}
+                >
+                  <Redo className="w-4 h-4" />
                 </button>
               </div>
             </div>
