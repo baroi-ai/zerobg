@@ -31,6 +31,7 @@ self.onmessage = async (event: MessageEvent) => {
           },
         });
       }
+      
 
       self.postMessage({ status: "progress", message: "Analyzing Image..." });
 
