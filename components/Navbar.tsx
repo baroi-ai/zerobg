@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <nav className="w-full h-14 md:h-16 bg-transparent backdrop-blur-md sticky top-0 z-50 flex items-center justify-between px-4 sm:px-6 shrink-0">
       {/* Left: Logo */}
-      <Link href="/zerobg/" className="flex items-center gap-3 group transition-opacity hover:opacity-90">
+      <Link href="/" className="flex items-center gap-3 group transition-opacity hover:opacity-90">
         <div className="h-8 w-8 rounded-lg bg-linear-to-br from-cyan-500 to-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
