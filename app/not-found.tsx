@@ -38,7 +38,7 @@ export default function NotFound() {
 
         {/* Return Home Button */}
         <Link 
-          href="/zerobg/"
+          href="/"
           className="group relative inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-cyan-500 to-teal-500 rounded-2xl text-slate-950 font-bold text-sm shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all active:scale-95"
         >
           <Home className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />

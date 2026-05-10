@@ -78,7 +78,7 @@ export default function BottomNav() {
       <div className="bg-slate-950/90 backdrop-blur-lg border-t border-white/10 px-6 py-3 pb-safe">
         <div className="flex items-center justify-between">
           <Link 
-            href="/zerobg/" 
+            href="/" 
             className={`flex flex-col items-center gap-1 transition-colors ${isActive('/zerobg/') ? 'text-cyan-400' : 'text-slate-400'}`}
           >
             <Home className="w-5 h-5" />
