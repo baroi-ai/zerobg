@@ -43,7 +43,7 @@ export default function BottomNav() {
         >
           <div className="flex flex-col gap-1">
             <Link 
-              href="/zerobg/terms" 
+              href="/terms" 
               onClick={() => setIsMoreOpen(false)}
               className="flex items-center gap-3 px-4 py-3 text-sm text-slate-300 active:bg-white/5 rounded-xl transition-colors"
             >
@@ -51,7 +51,7 @@ export default function BottomNav() {
               Terms of Service
             </Link>
             <Link 
-              href="/zerobg/privacy" 
+              href="/privacy" 
               onClick={() => setIsMoreOpen(false)}
               className="flex items-center gap-3 px-4 py-3 text-sm text-slate-300 active:bg-white/5 rounded-xl transition-colors"
             >
@@ -86,7 +86,7 @@ export default function BottomNav() {
           </Link>
 
           <Link 
-            href="/zerobg/donate" 
+            href="/donate" 
             className={`flex flex-col items-center gap-1 transition-colors ${isActive('/zerobg/donate') ? 'text-teal-400' : 'text-slate-400'}`}
           >
             <Heart className="w-5 h-5" />
@@ -94,7 +94,7 @@ export default function BottomNav() {
           </Link>
 
           <Link 
-            href="/zerobg/about" 
+            href="/about" 
             className={`flex flex-col items-center gap-1 transition-colors ${isActive('/zerobg/about') ? 'text-cyan-400' : 'text-slate-400'}`}
           >
             <Info className="w-5 h-5" />
